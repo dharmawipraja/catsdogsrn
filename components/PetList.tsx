@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 const BreedCell = ({ breed, data }) => {
@@ -9,7 +9,7 @@ const BreedCell = ({ breed, data }) => {
     <View style={styles.container}>
       <Text style={styles.breed}>{breed}</Text>
       {desc.map((item) => (
-        <Text>{item}</Text>
+        <Text style={styles.desc}>{item}</Text>
       ))}
     </View>
   )
@@ -35,22 +35,21 @@ const PetList = ({ data }) => (
 
 export default PetList
 
-const { width, height } = Dimensions.get('window')
-
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
     borderBottomWidth: 1,
     borderBottomColor: '#000',
-    padding: 18,
-    width: width - 20,
+    padding: 20,
     marginLeft: 10,
     marginRight: 10
   },
   breed: {
-    fontSize: 24
+    fontSize: 24,
+    marginBottom: 10
   },
   desc: {
+    marginTop: 5,
     fontSize: 16
   }
 })
